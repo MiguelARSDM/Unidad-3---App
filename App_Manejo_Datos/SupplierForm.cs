@@ -50,6 +50,31 @@ namespace App_Manejo_Datos
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(textInsertID.Text)) 
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertName.Text))
+            {
+                MessageBox.Show("Completar Campo Nombre");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertPhone.Text))
+            {
+                MessageBox.Show("Completar Campo Telefono");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertMail.Text))
+            {
+                MessageBox.Show("Completar Campo Correo Electronico");
+                return;
+            }
+
             using (SqlConnection connection = DB_Connection.OpenConnection())
             {
 
@@ -79,6 +104,11 @@ namespace App_Manejo_Datos
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textDeleteID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
 
             using (SqlConnection connection = DB_Connection.OpenConnection())
             {
@@ -105,6 +135,30 @@ namespace App_Manejo_Datos
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(textUpdateID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdateName.Text))
+            {
+                MessageBox.Show("Completar Campo Nombre");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdatePhone.Text))
+            {
+                MessageBox.Show("Completar Campo Telefono");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdateMail.Text))
+            {
+                MessageBox.Show("Completar Campo Correo Electronico");
+                return;
+            }
 
             using (SqlConnection connection = DB_Connection.OpenConnection()) 
             { 

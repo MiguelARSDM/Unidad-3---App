@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,9 +50,22 @@ namespace App_Manejo_Datos
         private void buttonInsert_Click(object sender, EventArgs e)
         {
 
+            if(string.IsNullOrEmpty(textInsertID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertName.Text))
+            {
+                MessageBox.Show("Completar Campo Nombre");
+                return;
+            }
+
 
             using (SqlConnection connection = DB_Connection.OpenConnection())
-            {
+            {                
+
                 int ID = Convert.ToInt32(textInsertID.Text);
                 string Name = textInsertName.Text;
                 string query = "Insert Into Categorias (CategoriaID,NombreCategoria) Values (" + ID + ",'" + Name + "')";
@@ -73,6 +87,11 @@ namespace App_Manejo_Datos
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textDeleteID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
 
             using (SqlConnection connection = DB_Connection.OpenConnection())
             {
@@ -98,6 +117,17 @@ namespace App_Manejo_Datos
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textUpdateID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdateName.Text))
+            {
+                MessageBox.Show("Completar Campo Nombre");
+                return;
+            }
 
             using (SqlConnection connection = DB_Connection.OpenConnection())
             {

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +53,42 @@ namespace App_Manejo_Datos
         private void buttonInsert_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrEmpty(textInsertID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertCategoria.Text))
+            {
+                MessageBox.Show("Completar Campo Categoria");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertName.Text))
+            {
+                MessageBox.Show("Completar Campo Nombre");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertPrice.Text))
+            {
+                MessageBox.Show("Completar Campo Precio");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertStock.Text))
+            {
+                MessageBox.Show("Completar Campo Stock");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textInsertDescription.Text))
+            {
+                MessageBox.Show("Completar Campo Descripcion");
+                return;
+            }
+
             using (SqlConnection connection = DB_Connection.OpenConnection())
             {
                 int ID = Convert.ToInt32(textInsertID.Text);
@@ -82,6 +119,12 @@ namespace App_Manejo_Datos
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textDeleteID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
+
             using (SqlConnection connection = DB_Connection.OpenConnection())
             {
                 int ID = Convert.ToInt32(textDeleteID.Text);
@@ -107,6 +150,44 @@ namespace App_Manejo_Datos
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
+
+            if (string.IsNullOrEmpty(textUpdateID.Text))
+            {
+                MessageBox.Show("Completar Campo ID");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdateCategoria.Text))
+            {
+                MessageBox.Show("Completar Campo Categoria");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdateName.Text))
+            {
+                MessageBox.Show("Completar Campo Nombre");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdatePrice.Text))
+            {
+                MessageBox.Show("Completar Campo Precio");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdateStock.Text))
+            {
+                MessageBox.Show("Completar Campo Stock");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(textUpdateDescription.Text))
+            {
+                MessageBox.Show("Completar Campo Descripcion");
+                return;
+            }
+
+
             using (SqlConnection connection = DB_Connection.OpenConnection())
             {
                 int ID = Convert.ToInt32(textUpdateID.Text);
