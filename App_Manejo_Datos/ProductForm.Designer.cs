@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            textInsertCategoria = new TextBox();
+            label13 = new Label();
+            textInsertID = new TextBox();
             buttonInsert = new Button();
-            comboBoxInsertCategory = new ComboBox();
             textInsertDescription = new TextBox();
             textInsertPrice = new TextBox();
             textInsertName = new TextBox();
@@ -45,8 +47,8 @@
             buttonDelete = new Button();
             label6 = new Label();
             groupBox3 = new GroupBox();
+            textUpdateCategoria = new TextBox();
             buttonUpdate = new Button();
-            comboBoxUpdateCategory = new ComboBox();
             textUpdateDescription = new TextBox();
             textUpdateStock = new TextBox();
             textUpdateName = new TextBox();
@@ -70,8 +72,10 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textInsertCategoria);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Controls.Add(textInsertID);
             groupBox1.Controls.Add(buttonInsert);
-            groupBox1.Controls.Add(comboBoxInsertCategory);
             groupBox1.Controls.Add(textInsertDescription);
             groupBox1.Controls.Add(textInsertPrice);
             groupBox1.Controls.Add(textInsertName);
@@ -87,7 +91,29 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Insertar";
-            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // textInsertCategoria
+            // 
+            textInsertCategoria.Location = new Point(137, 99);
+            textInsertCategoria.Name = "textInsertCategoria";
+            textInsertCategoria.Size = new Size(234, 27);
+            textInsertCategoria.TabIndex = 13;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(6, 24);
+            label13.Name = "label13";
+            label13.Size = new Size(24, 20);
+            label13.TabIndex = 12;
+            label13.Text = "ID";
+            // 
+            // textInsertID
+            // 
+            textInsertID.Location = new Point(6, 46);
+            textInsertID.Name = "textInsertID";
+            textInsertID.Size = new Size(125, 27);
+            textInsertID.TabIndex = 11;
             // 
             // buttonInsert
             // 
@@ -97,39 +123,32 @@
             buttonInsert.TabIndex = 10;
             buttonInsert.Text = "Agregar";
             buttonInsert.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxInsertCategory
-            // 
-            comboBoxInsertCategory.FormattingEnabled = true;
-            comboBoxInsertCategory.Location = new Point(137, 98);
-            comboBoxInsertCategory.Name = "comboBoxInsertCategory";
-            comboBoxInsertCategory.Size = new Size(234, 28);
-            comboBoxInsertCategory.TabIndex = 9;
+            buttonInsert.Click += buttonInsert_Click;
             // 
             // textInsertDescription
             // 
-            textInsertDescription.Location = new Point(6, 151);
+            textInsertDescription.Location = new Point(137, 151);
             textInsertDescription.Name = "textInsertDescription";
-            textInsertDescription.Size = new Size(365, 27);
+            textInsertDescription.Size = new Size(234, 27);
             textInsertDescription.TabIndex = 8;
             // 
             // textInsertPrice
             // 
-            textInsertPrice.Location = new Point(211, 46);
+            textInsertPrice.Location = new Point(6, 97);
             textInsertPrice.Name = "textInsertPrice";
-            textInsertPrice.Size = new Size(160, 27);
+            textInsertPrice.Size = new Size(125, 27);
             textInsertPrice.TabIndex = 7;
             // 
             // textInsertName
             // 
-            textInsertName.Location = new Point(6, 46);
+            textInsertName.Location = new Point(137, 46);
             textInsertName.Name = "textInsertName";
-            textInsertName.Size = new Size(199, 27);
+            textInsertName.Size = new Size(234, 27);
             textInsertName.TabIndex = 6;
             // 
             // textInsertStock
             // 
-            textInsertStock.Location = new Point(6, 98);
+            textInsertStock.Location = new Point(6, 151);
             textInsertStock.Name = "textInsertStock";
             textInsertStock.Size = new Size(125, 27);
             textInsertStock.TabIndex = 5;
@@ -146,7 +165,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 76);
+            label4.Location = new Point(6, 129);
             label4.Name = "label4";
             label4.Size = new Size(45, 20);
             label4.TabIndex = 3;
@@ -155,7 +174,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 128);
+            label3.Location = new Point(137, 129);
             label3.Name = "label3";
             label3.Size = new Size(87, 20);
             label3.TabIndex = 2;
@@ -164,7 +183,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(211, 23);
+            label2.Location = new Point(6, 76);
             label2.Name = "label2";
             label2.Size = new Size(50, 20);
             label2.TabIndex = 1;
@@ -173,7 +192,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 23);
+            label1.Location = new Point(137, 24);
             label1.Name = "label1";
             label1.Size = new Size(153, 20);
             label1.TabIndex = 0;
@@ -206,6 +225,7 @@
             buttonDelete.TabIndex = 1;
             buttonDelete.Text = "Eliminar";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // label6
             // 
@@ -218,8 +238,8 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(textUpdateCategoria);
             groupBox3.Controls.Add(buttonUpdate);
-            groupBox3.Controls.Add(comboBoxUpdateCategory);
             groupBox3.Controls.Add(textUpdateDescription);
             groupBox3.Controls.Add(textUpdateStock);
             groupBox3.Controls.Add(textUpdateName);
@@ -238,6 +258,13 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Actualizar";
             // 
+            // textUpdateCategoria
+            // 
+            textUpdateCategoria.Location = new Point(163, 96);
+            textUpdateCategoria.Name = "textUpdateCategoria";
+            textUpdateCategoria.Size = new Size(283, 27);
+            textUpdateCategoria.TabIndex = 14;
+            // 
             // buttonUpdate
             // 
             buttonUpdate.Location = new Point(6, 183);
@@ -246,14 +273,7 @@
             buttonUpdate.TabIndex = 12;
             buttonUpdate.Text = "Actualizar";
             buttonUpdate.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxUpdateCategory
-            // 
-            comboBoxUpdateCategory.FormattingEnabled = true;
-            comboBoxUpdateCategory.Location = new Point(163, 96);
-            comboBoxUpdateCategory.Name = "comboBoxUpdateCategory";
-            comboBoxUpdateCategory.Size = new Size(283, 28);
-            comboBoxUpdateCategory.TabIndex = 11;
+            buttonUpdate.Click += buttonUpdate_Click;
             // 
             // textUpdateDescription
             // 
@@ -363,6 +383,7 @@
             buttonShow.TabIndex = 1;
             buttonShow.Text = "Cargar";
             buttonShow.UseVisualStyleBackColor = true;
+            buttonShow.Click += buttonShow_Click;
             // 
             // screen
             // 
@@ -372,7 +393,6 @@
             screen.RowHeadersWidth = 51;
             screen.Size = new Size(1029, 217);
             screen.TabIndex = 0;
-            screen.CellContentClick += dataGridView1_CellContentClick;
             // 
             // ProductForm
             // 
@@ -420,16 +440,18 @@
         private DataGridView screen;
         private TextBox textInsertDescription;
         private Button buttonInsert;
-        private ComboBox comboBoxInsertCategory;
         private TextBox textDeleteID;
         private Button buttonDelete;
         private Button buttonUpdate;
-        private ComboBox comboBoxUpdateCategory;
         private TextBox textUpdateDescription;
         private TextBox textUpdateStock;
         private TextBox textUpdateName;
         private TextBox textUpdateID;
         private TextBox textUpdatePrice;
         private Button buttonShow;
+        private Label label13;
+        private TextBox textInsertID;
+        private TextBox textInsertCategoria;
+        private TextBox textUpdateCategoria;
     }
 }

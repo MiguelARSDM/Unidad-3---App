@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label9 = new Label();
+            textInsertID = new TextBox();
             textInsertMail = new TextBox();
             textInsertPhone = new TextBox();
             textInsertName = new TextBox();
@@ -62,6 +64,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(textInsertID);
             groupBox1.Controls.Add(textInsertMail);
             groupBox1.Controls.Add(textInsertPhone);
             groupBox1.Controls.Add(textInsertName);
@@ -76,11 +80,27 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Insertar";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(6, 23);
+            label9.Name = "label9";
+            label9.Size = new Size(24, 20);
+            label9.TabIndex = 16;
+            label9.Text = "ID";
+            // 
+            // textInsertID
+            // 
+            textInsertID.Location = new Point(6, 46);
+            textInsertID.Name = "textInsertID";
+            textInsertID.Size = new Size(181, 27);
+            textInsertID.TabIndex = 15;
+            // 
             // textInsertMail
             // 
-            textInsertMail.Location = new Point(6, 97);
+            textInsertMail.Location = new Point(193, 97);
             textInsertMail.Name = "textInsertMail";
-            textInsertMail.Size = new Size(348, 27);
+            textInsertMail.Size = new Size(161, 27);
             textInsertMail.TabIndex = 14;
             // 
             // textInsertPhone
@@ -92,7 +112,7 @@
             // 
             // textInsertName
             // 
-            textInsertName.Location = new Point(6, 44);
+            textInsertName.Location = new Point(6, 97);
             textInsertName.Name = "textInsertName";
             textInsertName.Size = new Size(181, 27);
             textInsertName.TabIndex = 12;
@@ -105,11 +125,12 @@
             buttonInsert.TabIndex = 8;
             buttonInsert.Text = "Agregar";
             buttonInsert.UseVisualStyleBackColor = true;
+            buttonInsert.Click += buttonInsert_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(3, 74);
+            label3.Location = new Point(193, 77);
             label3.Name = "label3";
             label3.Size = new Size(132, 20);
             label3.TabIndex = 2;
@@ -127,7 +148,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(3, 23);
+            label1.Location = new Point(6, 74);
             label1.Name = "label1";
             label1.Size = new Size(161, 20);
             label1.TabIndex = 0;
@@ -160,6 +181,7 @@
             buttonDelete.TabIndex = 9;
             buttonDelete.Text = "Eliminar";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // label4
             // 
@@ -187,7 +209,6 @@
             groupBox3.TabIndex = 0;
             groupBox3.TabStop = false;
             groupBox3.Text = "Actualizar";
-            groupBox3.Enter += groupBox3_Enter;
             // 
             // textUpdateName
             // 
@@ -225,6 +246,7 @@
             buttonUpdate.TabIndex = 9;
             buttonUpdate.Text = "Actualizar";
             buttonUpdate.UseVisualStyleBackColor = true;
+            buttonUpdate.Click += buttonUpdate_Click;
             // 
             // label8
             // 
@@ -290,7 +312,7 @@
             buttonShow.TabIndex = 10;
             buttonShow.Text = "Cargar";
             buttonShow.UseVisualStyleBackColor = true;
-            buttonShow.Click += button4_Click;
+            buttonShow.Click += buttonShow_Click;
             // 
             // SupplierForm
             // 
@@ -341,5 +363,7 @@
         private Label label5;
         private Button buttonShow;
         private DataGridView screen;
+        private Label label9;
+        private TextBox textInsertID;
     }
 }

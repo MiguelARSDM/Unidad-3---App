@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label11 = new Label();
+            textInsertID = new TextBox();
             buttonInsert = new Button();
             textInsertPhone = new TextBox();
             textInsertAddress = new TextBox();
@@ -45,10 +47,10 @@
             groupBox3 = new GroupBox();
             textUpdateName = new TextBox();
             textUpdatePhone = new TextBox();
-            textBox8 = new TextBox();
+            textUpdateAddress = new TextBox();
             textUpdateID = new TextBox();
             buttonUpdate = new Button();
-            textUpdateAddress = new TextBox();
+            textUpdateMail = new TextBox();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -66,6 +68,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label11);
+            groupBox1.Controls.Add(textInsertID);
             groupBox1.Controls.Add(buttonInsert);
             groupBox1.Controls.Add(textInsertPhone);
             groupBox1.Controls.Add(textInsertAddress);
@@ -82,6 +86,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Insertar";
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(6, 26);
+            label11.Name = "label11";
+            label11.Size = new Size(24, 20);
+            label11.TabIndex = 10;
+            label11.Text = "ID";
+            // 
+            // textInsertID
+            // 
+            textInsertID.Location = new Point(6, 49);
+            textInsertID.Name = "textInsertID";
+            textInsertID.Size = new Size(182, 27);
+            textInsertID.TabIndex = 9;
+            // 
             // buttonInsert
             // 
             buttonInsert.Location = new Point(9, 188);
@@ -90,11 +110,11 @@
             buttonInsert.TabIndex = 8;
             buttonInsert.Text = "Agregar";
             buttonInsert.UseVisualStyleBackColor = true;
-            buttonInsert.Click += button1_Click;
+            buttonInsert.Click += buttonInsert_Click;
             // 
             // textInsertPhone
             // 
-            textInsertPhone.Location = new Point(194, 49);
+            textInsertPhone.Location = new Point(194, 102);
             textInsertPhone.Name = "textInsertPhone";
             textInsertPhone.Size = new Size(188, 27);
             textInsertPhone.TabIndex = 7;
@@ -108,14 +128,14 @@
             // 
             // textInsertMail
             // 
-            textInsertMail.Location = new Point(6, 102);
+            textInsertMail.Location = new Point(194, 49);
             textInsertMail.Name = "textInsertMail";
-            textInsertMail.Size = new Size(376, 27);
+            textInsertMail.Size = new Size(182, 27);
             textInsertMail.TabIndex = 5;
             // 
             // textInsertName
             // 
-            textInsertName.Location = new Point(6, 49);
+            textInsertName.Location = new Point(6, 102);
             textInsertName.Name = "textInsertName";
             textInsertName.Size = new Size(182, 27);
             textInsertName.TabIndex = 4;
@@ -132,17 +152,16 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 79);
+            label3.Location = new Point(194, 26);
             label3.Name = "label3";
             label3.Size = new Size(132, 20);
             label3.TabIndex = 2;
             label3.Text = "Correo Electronico";
-            label3.Click += label3_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(194, 26);
+            label2.Location = new Point(194, 79);
             label2.Name = "label2";
             label2.Size = new Size(67, 20);
             label2.TabIndex = 1;
@@ -151,7 +170,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 26);
+            label1.Location = new Point(6, 79);
             label1.Name = "label1";
             label1.Size = new Size(134, 20);
             label1.TabIndex = 0;
@@ -177,6 +196,7 @@
             buttonDelete.TabIndex = 11;
             buttonDelete.Text = "Eliminar";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // textDeleteID
             // 
@@ -198,10 +218,10 @@
             // 
             groupBox3.Controls.Add(textUpdateName);
             groupBox3.Controls.Add(textUpdatePhone);
-            groupBox3.Controls.Add(textBox8);
+            groupBox3.Controls.Add(textUpdateAddress);
             groupBox3.Controls.Add(textUpdateID);
             groupBox3.Controls.Add(buttonUpdate);
-            groupBox3.Controls.Add(textUpdateAddress);
+            groupBox3.Controls.Add(textUpdateMail);
             groupBox3.Controls.Add(label10);
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(label8);
@@ -228,12 +248,12 @@
             textUpdatePhone.Size = new Size(186, 27);
             textUpdatePhone.TabIndex = 9;
             // 
-            // textBox8
+            // textUpdateAddress
             // 
-            textBox8.Location = new Point(6, 155);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(394, 27);
-            textBox8.TabIndex = 8;
+            textUpdateAddress.Location = new Point(6, 155);
+            textUpdateAddress.Name = "textUpdateAddress";
+            textUpdateAddress.Size = new Size(394, 27);
+            textUpdateAddress.TabIndex = 8;
             // 
             // textUpdateID
             // 
@@ -250,13 +270,14 @@
             buttonUpdate.TabIndex = 5;
             buttonUpdate.Text = "Actualizar";
             buttonUpdate.UseVisualStyleBackColor = true;
+            buttonUpdate.Click += buttonUpdate_Click;
             // 
-            // textUpdateAddress
+            // textUpdateMail
             // 
-            textUpdateAddress.Location = new Point(214, 102);
-            textUpdateAddress.Name = "textUpdateAddress";
-            textUpdateAddress.Size = new Size(186, 27);
-            textUpdateAddress.TabIndex = 7;
+            textUpdateMail.Location = new Point(214, 102);
+            textUpdateMail.Name = "textUpdateMail";
+            textUpdateMail.Size = new Size(186, 27);
+            textUpdateMail.TabIndex = 7;
             // 
             // label10
             // 
@@ -331,6 +352,7 @@
             buttonShow.TabIndex = 0;
             buttonShow.Text = "Cargar";
             buttonShow.UseVisualStyleBackColor = true;
+            buttonShow.Click += buttonShow_Click;
             // 
             // ClientForm
             // 
@@ -379,11 +401,13 @@
         private Label label6;
         private TextBox textUpdateName;
         private TextBox textUpdatePhone;
-        private TextBox textBox8;
+        private TextBox textUpdateAddress;
         private TextBox textUpdateID;
         private Button buttonUpdate;
-        private TextBox textUpdateAddress;
+        private TextBox textUpdateMail;
         private DataGridView screen;
         private Button buttonShow;
+        private Label label11;
+        private TextBox textInsertID;
     }
 }

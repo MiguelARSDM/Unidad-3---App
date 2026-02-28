@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            textInsertID = new TextBox();
+            label5 = new Label();
             textInsertName = new TextBox();
             label1 = new Label();
             buttonInsert = new Button();
@@ -54,6 +56,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textInsertID);
+            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(textInsertName);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(buttonInsert);
@@ -64,9 +68,25 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Insertar";
             // 
+            // textInsertID
+            // 
+            textInsertID.Location = new Point(6, 48);
+            textInsertID.Name = "textInsertID";
+            textInsertID.Size = new Size(313, 27);
+            textInsertID.TabIndex = 7;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(6, 25);
+            label5.Name = "label5";
+            label5.Size = new Size(24, 20);
+            label5.TabIndex = 6;
+            label5.Text = "ID";
+            // 
             // textInsertName
             // 
-            textInsertName.Location = new Point(6, 45);
+            textInsertName.Location = new Point(6, 98);
             textInsertName.Name = "textInsertName";
             textInsertName.Size = new Size(313, 27);
             textInsertName.TabIndex = 5;
@@ -74,21 +94,21 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 25);
+            label1.Location = new Point(6, 75);
             label1.Name = "label1";
             label1.Size = new Size(170, 20);
             label1.TabIndex = 0;
             label1.Text = "Nombre de la Categoria";
-            label1.Click += label1_Click;
             // 
             // buttonInsert
             // 
-            buttonInsert.Location = new Point(6, 81);
+            buttonInsert.Location = new Point(6, 138);
             buttonInsert.Name = "buttonInsert";
             buttonInsert.Size = new Size(313, 56);
             buttonInsert.TabIndex = 4;
             buttonInsert.Text = "Agregar";
             buttonInsert.UseVisualStyleBackColor = true;
+            buttonInsert.Click += buttonInsert_Click;
             // 
             // groupBox2
             // 
@@ -117,7 +137,6 @@
             label2.Size = new Size(24, 20);
             label2.TabIndex = 1;
             label2.Text = "ID";
-            label2.Click += label2_Click;
             // 
             // buttonDelete
             // 
@@ -127,6 +146,7 @@
             buttonDelete.TabIndex = 5;
             buttonDelete.Text = "Eliminar";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // groupBox3
             // 
@@ -155,7 +175,6 @@
             textUpdateName.Name = "textUpdateName";
             textUpdateName.Size = new Size(262, 27);
             textUpdateName.TabIndex = 8;
-            textUpdateName.TextChanged += textBox4_TextChanged;
             // 
             // buttonUpdate
             // 
@@ -165,6 +184,7 @@
             buttonUpdate.TabIndex = 6;
             buttonUpdate.Text = "Actualizar";
             buttonUpdate.UseVisualStyleBackColor = true;
+            buttonUpdate.Click += buttonUpdate_Click;
             // 
             // label4
             // 
@@ -203,6 +223,7 @@
             buttonShow.TabIndex = 7;
             buttonShow.Text = "Cargar";
             buttonShow.UseVisualStyleBackColor = true;
+            buttonShow.Click += buttonShow_Click;
             // 
             // screen
             // 
@@ -238,8 +259,6 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textInsertName;
-        private Label label1;
         private Button buttonInsert;
         private GroupBox groupBox2;
         private Label label2;
@@ -254,5 +273,9 @@
         private Button buttonShow;
         private TextBox textDeleteID;
         private DataGridView screen;
+        private TextBox textInsertID;
+        private Label label5;
+        private TextBox textInsertName;
+        private Label label1;
     }
 }

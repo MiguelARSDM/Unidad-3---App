@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.ClientModel.Primitives;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,13 +19,115 @@ namespace App_Manejo_Datos
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void buttonShow_Click(object sender, EventArgs e)
         {
+            List<Client> lista = new List<Client>();
+
+            using (SqlConnection connection = DB_Connection.OpenConnection())
+            {
+                string query = "Select * From Clientes";
+
+                SqlCommand command = new SqlCommand(query, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Client client = new Client();
+                    client.id = reader.GetInt32(0);
+                    client.name = reader.GetString(1);
+                    client.mail = reader.GetString(2);
+                    client.phone = reader.GetString(3);
+                    client.address = reader.GetString(4);
+
+                    lista.Add(client);
+                }
+
+                screen.DataSource = lista;
+            }
+
+
+        }
+        //===
+        private void buttonInsert_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connetion = DB_Connection.OpenConnection())
+            {
+
+                int ID = Convert.ToInt32(textInsertID.Text);
+                string name = textInsertName.Text;
+                string mail = textInsertMail.Text;
+                string phone = textInsertPhone.Text;
+                string address = textInsertAddress.Text;
+
+                string query = "Insert into Clientes (ClienteID,NombreCompleto,CorreoElectronico,Telefono,Direccion)" +
+                    " Values (" + ID + ",'" + name + "','" + mail + "','" + phone + "','" + address + "')";
+
+                SqlCommand command = new SqlCommand(query, connetion);
+
+                int result = command.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Exito al Insertar");
+                }
+                else
+                {
+                    MessageBox.Show("Error al Insertar");
+                }
+            }
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
+
+
+            using (SqlConnection connetion = DB_Connection.OpenConnection())
+            {
+                int ID = Convert.ToInt32(textDeleteID.Text);
+                string query = "Delete From Clientes Where ClienteID = " + ID;
+                SqlCommand sqlCommand = new SqlCommand(query, connetion);
+
+                int result = sqlCommand.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Exito al Eliminar");
+                }
+                else
+                {
+                    MessageBox.Show("Error al Eliminar");
+                }
+
+            }
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = DB_Connection.OpenConnection()) 
+            {
+                int ID = Convert.ToInt32(textUpdateID.Text);
+                string name = textUpdateName.Text;
+                string mail = textUpdateMail.Text;
+                string phone = textUpdatePhone.Text;
+                string address = textUpdateAddress.Text;
+
+                string query = $"Update Clientes Set NombreCompleto = '{name}',CorreoElectronico = '{mail}',Telefono = '{phone}', Direccion = '{address}' Where ClienteID = '{ID}'";
+                SqlCommand command = new SqlCommand(query,connection);
+
+                int result = command.ExecuteNonQuery();
+
+                if (result > 0)
+                {
+                    MessageBox.Show("Exito al Actualizar");
+                }
+                else
+                {
+                    MessageBox.Show("Error al Actualizar");
+                }
+
+            }
 
         }
     }
